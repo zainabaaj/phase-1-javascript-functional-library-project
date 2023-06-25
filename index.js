@@ -1,6 +1,4 @@
-// Collection Functions (Arrays or Objects)
 
-// myEach
 function myEach(collection, callback) {
     if (Array.isArray(collection)) {
         for (let i = 0; i < collection.length; i++) {
@@ -14,7 +12,6 @@ function myEach(collection, callback) {
     return collection;
 }
 
-// myMap
 function myMap(collection, callback) {
     const result = [];
     myEach(collection, function (value, key, collection) {
@@ -23,7 +20,6 @@ function myMap(collection, callback) {
     return result;
 }
 
-// myReduce
 function myReduce(collection, callback, acc) {
     myEach(collection, function (value, key, collection) {
         if (acc === undefined) {
@@ -35,7 +31,6 @@ function myReduce(collection, callback, acc) {
     return acc;
 }
 
-// myFind
 function myFind(collection, predicate) {
     if (Array.isArray(collection)) {
         for (let i = 0; i < collection.length; i++) {
@@ -54,7 +49,6 @@ function myFind(collection, predicate) {
     }
 }
 
-// myFilter
 function myFilter(collection, predicate) {
     const result = [];
     myEach(collection, function (value, key, collection) {
@@ -65,7 +59,6 @@ function myFilter(collection, predicate) {
     return result;
 }
 
-// mySize
 function mySize(collection) {
     if (Array.isArray(collection)) {
         return collection.length;
@@ -74,9 +67,6 @@ function mySize(collection) {
     }
 }
 
-// Array Functions
-
-// myFirst
 function myFirst(array, n) {
     if (n === undefined) {
         return array[0];
@@ -85,7 +75,6 @@ function myFirst(array, n) {
     }
 }
 
-// myLast
 function myLast(array, n) {
     if (n === undefined) {
         return array[array.length - 1];
@@ -94,7 +83,6 @@ function myLast(array, n) {
     }
 }
 
-// BONUS: mySortBy
 function mySortBy(array, callback) {
     return array.slice().sort(function (a, b) {
         const aValue = callback(a);
@@ -109,7 +97,6 @@ function mySortBy(array, callback) {
     });
 }
 
-// BONUS: myFlatten
 function myFlatten(array, shallow, newArr = []) {
     if (!Array.isArray(array)) {
         newArr.push(array);
@@ -131,16 +118,11 @@ function myFlatten(array, shallow, newArr = []) {
     return newArr;
 }
 
-// Object Functions
-
-// myKeys
 function myKeys(object) {
     return myMap(object, function (value, key) {
         return key;
     });
 }
-
-// myValues
 function myValues(object) {
     return myMap(object, function (value) {
         return value;
